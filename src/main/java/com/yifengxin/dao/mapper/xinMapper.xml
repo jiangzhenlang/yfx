@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yifengxin.dao.XinMapper" >
+	
+
+  <select id="selectAll" resultType="java.util.HashMap" parameterType="java.util.HashMap" >
+		select * from xin
+  </select>
+	
+  <select id="selectByKey" resultType="java.util.HashMap" parameterType="java.util.HashMap" >
+	select * from xin x where x.zkey=#{zkey}
+  </select>
+ 
+  <insert id="insertOne" parameterType="java.util.HashMap" >
+		insert into xin(zkey,xnr) values(#{zkey},#{xnr})
+  </insert>
+  
+</mapper>

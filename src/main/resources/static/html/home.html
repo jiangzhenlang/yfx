@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+    <title>秘密</title>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.0/normalize.css">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script>
+        var r="?r="+new Date().getTime()
+        document.write('<script src="../js/BASE.js'+r+'"><\/script>')
+        document.write('<link rel="stylesheet" href="../css/BASE.css'+r+'">')
+    </script>
+</head>
+
+
+<body class="base home" style="background-color: #000033">
+
+<div id="main" class="m"  >
+    <h1 class="top">嘘,这是个秘密哟！</h1>
+
+    <div class="btnCenter">
+        <div>
+        <span  id="writeBtn" class="btn btn-primary btn-lg" style="width: 15em">
+            <span>写下并分享</span>
+            <span class="glyphicon glyphicon-pencil" style="float:right"></span>
+        </span>
+        </div>
+        <div>
+        <span  id="readBtn" class="btn btn-success btn-lg" style="width: 15em">
+            <span>读取并销毁</span>
+            <span class="glyphicon glyphicon-envelope" style="float:right"></span>
+        </span>
+        </div>
+    </div>
+</div>
+
+<div class="m" id="writePanel" style="display: none" >
+
+        <h1 style="text-align: center;display:block">
+            <span style="width: 80%;display: inline-block;position: relative;">
+                快点吐槽
+            <span fn="goback" class="glyphicon glyphicon-log-out" style="font-size:0.8em;position: absolute;right: 0px"></span>
+            </span>
+        </h1>
+
+        <div class="c">
+
+            <div class="c1">
+                <textarea placeholder="我在听你说。。。" id="content" class="bgColor" style="padding:1%;color: #ffffff;width: 100%;font-size:2rem;resize:none" maxlength="1000" ></textarea>
+            </div>
+
+            <div class="c2">
+                <span  id="jmscbtn" class="btn btn-primary btn" style="border: none">
+                    <span style="letter-spacing: .2em">加密</span>
+                    <span class="glyphicon glyphicon-ok"></span>
+                </span>
+            </div>
+
+        </div>
+</div>
+
+<div  class="m" id="readPanel" style="display: none"  >
+
+
+    <h1 style="text-align: center;display:block">
+            <span style="width: 80%;display: inline-block;position: relative;">
+                快点读，不然要没了！
+            <span  fn="goback" class="glyphicon glyphicon-log-out" style="font-size:0.8em;position: absolute;right: 0px"></span>
+            </span>
+    </h1>
+
+    <div class="c" >
+        <div id="keyQ" class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><!--<span aria-hidden="true">&times;</span>--></button>
+                <h4 class="modal-title" style="color: #000033">请输入秘钥！</h4>
+            </div>
+            <div class="modal-body">
+                <textarea id="keyIp" class="form-control" rows="5"  style="resize: none;overflow: auto;color: #000033"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button id="getXinBtn" type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+
+        <div class="c1" style="display:none">
+            <textarea  id="keyC" placeholder="" class="bgColor" style="padding:1%;color: #ffffff;width: 100%;font-size:2rem;resize:none" readonly maxlength="1000" ></textarea>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Modal pop-->
+<div class="modal fade" style="height: 99%;" id="Mpop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" style="color: #000033">加密生成Key</h4>
+            </div>
+            <div class="modal-body">
+                <span style="color: #000033"></span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">复制并关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal alert -->
+<div class="modal fade" style="height: 99%;" id="Malert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content"  style="width: 60%;text-align: center">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" style="color: #000033">提示信息</h4>
+            </div>
+            <div class="modal-body">
+                <span style="color: #000033"></span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal load -->
+<div class="modal fade" id="Mload" tabindex="-1" role="dialog">
+    <div class="c_parent">
+            <div class="loadEffect">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+    </div>
+</div>
+
+</body>
+</html>

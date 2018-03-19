@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>写下秘密</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.0/normalize.css">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="../css/BASE.css">
+    <script src="../js/BASE.js"></script>
+</head>
+<style>
+    .bgColor{
+        background-color: #000033;
+    }
+   .top{margin-top:10%}
+    @media screen and (min-width:900px) {
+        .contentBox {margin-top: 2%}
+    }
+    !* 设置了浏览器宽度不大于900px时 abc 显示200px宽度 *!
+    @media screen and (max-width: 500px) {
+        .contentBox {margin-top: 5%;}
+
+    }
+
+    .btn:active {
+        background-color:yellow;
+        border: none;
+    }
+    .btn:visited{
+        background-color:yellow;
+        border: none;
+    }
+    .btn:link{
+        border: none;
+    }
+</style>
+
+<script>
+$(function () {
+    fn_js_textarea();
+})
+
+function fn_js_textarea() {
+$("#content").css({
+    height:G_height*0.6+"px"
+})
+}
+</script>
+<body>
+
+
+
+
+
+</body>
+</html>
